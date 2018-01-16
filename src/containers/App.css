@@ -1,0 +1,21 @@
+body {
+  box-sizing: border-box;
+  background-color: #F6F8F9;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  margin-top: 2rem;
+  padding: 0.5rem;
+  color: white;
+  font-weight: bold;
+  margin-left: 0.7rem;
+  cursor: pointer;
+  border: none;
+  background-color: #ffa2a2;
+}
