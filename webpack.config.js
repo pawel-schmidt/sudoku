@@ -26,7 +26,7 @@ module.exports = {
         "./index.js"
     ],
     output: {
-        path: path.resolve(__dirname, "src"),
+        path: path.resolve(__dirname, "build"),
         filename: "app.bundle.js"
     },
     plugins: [
@@ -41,7 +41,8 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                loader: "babel-loader"
+                loader: "babel-loader",
+                exclude:path.resolve(__dirname, "node_modules")
             },
             {
                 test: /\.css$/,

@@ -6,17 +6,37 @@ import styles from "./App.css";
 class App extends React.Component {
   constructor(props) {
     super(props)
+    const initialBoard = sudoku.generate("easy", false);
+    console.log(initialBoard);
     this.state = {
-      initialBoard: sudoku.generate("easy", false),
-      board: ""
+      initialBoard: initialBoard,
+      board: initialBoard
     }
   }
 
-  updateInput(event) {
-    this.setState({
-      board: event.target.value,
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  updateInput(event, index) {
+    const tile = event.target.value;
+    this.setState((prev) => {
+      board: prev.board.slice(0, index) + tile.toString() + prev.board.slice(index + 1)
     });
     event.preventDefault();
+  }
+
+  checkBoard(index) {
+    const solution = sudoku.solve(this.state.initialBoard);
+    const answer = this.state.board.split("");
+
+    answer.map((index, solution) => {
+      if (answer[index] == solution[index]) {
+        
+      } else {
+        
+      }
+    });    
   }
 
   solveBoard() {
@@ -27,14 +47,15 @@ class App extends React.Component {
 
   resetBoard() {
     this.setState({
-      board: ""
+      board: this.state.initialBoard
     })
   }
 
   newBoard() {
+    const initialBoard = sudoku.generate("easy", false);
     this.setState({
-      initialBoard: sudoku.generate("easy", false),
-      board: ""
+      initialBoard: initialBoard,
+      board: initialBoard
     })
   }
 
@@ -43,11 +64,13 @@ class App extends React.Component {
       <div className={styles.App}>
         <h1>Sudoku</h1>
         <Board
-          input={this.state.board}
+          board={this.state.board}
+          initialBoard={this.state.initialBoard}
           fill={this.updateInput.bind(this)}
+          handleSubmit={this.handleSubmit.bind(this)}
         />
         <div className="buttons">
-          <button>Check</button>
+          <button onClick={this.checkBoard.bind(this)}>Check</button>
           <button onClick={this.newBoard.bind(this)}>New game</button>
           <button onClick={this.solveBoard.bind(this)}>Solve</button>
           <button onClick={this.resetBoard.bind(this)}>Restart</button>

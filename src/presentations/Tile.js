@@ -1,15 +1,13 @@
 import React from "react";
 
-const Tile = (props) => {
+const Tile = (props, index) => {
   return (
-      <input
-        onSubmit={(e) => this.handleSubmit(e)}
-        type="number"
-        min="1"
-        max="9"
-        value={props.content.board}
-        onChange={(e) => props.fill(e)}
-      />
+    <input
+      min="1"
+      max="9"
+      value={props.content.number}
+      onChange={e => props.fill(e, index)}
+    />
   )
 }
 

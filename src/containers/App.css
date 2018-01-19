@@ -1,12 +1,7 @@
 body {
   box-sizing: border-box;
   background-color: #F6F8F9;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 100vw; 
 }
 
 button {
@@ -18,4 +13,12 @@ button {
   cursor: pointer;
   border: none;
   background-color: #ffa2a2;
+}
+
+#app {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
 }

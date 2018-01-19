@@ -13,3 +13,9 @@ input {
   text-align: center;
   border: 1px solid lightgray;
 }
+
+input[type="number"]:disabled {
+  background-color: #F6F8F9;
+  color: #ffa2a2;
+  font-weight: bold;
+}
