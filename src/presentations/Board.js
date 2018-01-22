@@ -10,8 +10,8 @@ const Board = props => {
       <input
         key={index}
         type="number"
-        value={item}
-        disabled={props.initialBoard.toString()[index] !== "."}
+        value={item === "." ? "" : item}
+        disabled={props.initialBoard[index] !== "."}
         min="1"
         max="9"
         onChange={e => props.fill(e, index)}

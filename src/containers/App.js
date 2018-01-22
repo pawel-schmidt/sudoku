@@ -20,9 +20,9 @@ class App extends React.Component {
 
   updateInput(event, index) {
     const tile = event.target.value;
-    this.setState((prev) => {
+    this.setState((prev) => ({
       board: prev.board.slice(0, index) + tile.toString() + prev.board.slice(index + 1)
-    });
+    }));
     event.preventDefault();
   }
 
